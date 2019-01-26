@@ -1,18 +1,19 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Experimental.Input;
 
 public class PlayerMovement : MonoBehaviour{
     // Use this for initialization
     public float MoveSpeed = 5;
     public float Mass = 5;
+    //public Animator animator;
 
     //private field
     private CharacterController _controller;
     private Vector3 motion;
     private Vector3 LookAtPosition;
     private Vector3 Impact;
-    public Animator animator;
 
     bool wasRunning = false;
 
@@ -20,20 +21,20 @@ public class PlayerMovement : MonoBehaviour{
         _controller = GetComponent<CharacterController>();
         //animator = GetComponent<Animator>();
     }
-    
-    // Update is called once per frame
+
     public void Move (Vector3 motion) {
         if (motion.magnitude > 0)
         {
             //if player is moving, look at moving direction
             LookAtPosition = motion;
-            animator.SetBool("Run", true);
+          //  animator.SetBool("Run", true);
             wasRunning = true;
         }
         else
         if (motion.magnitude < 1)
         {
-            if (wasRunning == true) { animator.SetBool("Run", false); wasRunning = false; }
+            if (wasRunning == true) { //animator.SetBool("Run", false); 
+            wasRunning = false; }
         }
 
         if (Impact.magnitude > 0)
@@ -44,11 +45,10 @@ public class PlayerMovement : MonoBehaviour{
         else _controller.SimpleMove(motion * MoveSpeed);
 
         if(LookAtPosition.magnitude > 0)
-        transform.rotation = Quaternion.LookRotation(LookAtPosition);
+            transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(LookAtPosition), Time.deltaTime * 10);
     }
+
     public void AddImpact(Vector3 dir, float ammount){
         Impact = dir * ammount;
     }
-
-
 }
