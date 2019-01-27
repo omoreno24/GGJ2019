@@ -83,6 +83,8 @@ public class PlayerController : MonoBehaviour, IInteractor
             interactable.GameObject.transform.rotation = PickUpPoint.rotation;
 
             interactable.GameObject.transform.SetParent(this.transform);
+
+            this.SelectedInteractable = null;
         }
     }
 
@@ -92,6 +94,7 @@ public class PlayerController : MonoBehaviour, IInteractor
             return;
 
         Item.GameObject.transform.SetParent(null);
+        Item.Enable();
 
         this.Item = null;
     }

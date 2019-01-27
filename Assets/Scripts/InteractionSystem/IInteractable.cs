@@ -15,5 +15,7 @@ public interface IInteractable
 
     void Interact(IInteractor interactor);
 
+    void Enable();
+
     void Disable();
 }

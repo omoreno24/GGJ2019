@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class PickUpInteractable : MonoBehaviour, IInteractable
+public class PickUpInteractable : Interactable, IInteractable
 {
     [SerializeField]
     private int id = 1;
@@ -10,13 +10,9 @@ public class PickUpInteractable : MonoBehaviour, IInteractable
 
     public GameObject GameObject => gameObject;
 
-    public void Disable()
-    {
-        this.GetComponent<Collider>().enabled = false;
-    }
-
     public void Interact(IInteractor interactor)
     {
         interactor.PickUP(this);
+        Disable();
     }
 }

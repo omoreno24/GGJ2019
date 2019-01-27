@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class ItemSlotInteractableWithWork: MonoBehaviour, IInteractable
+public class ItemSlotInteractableWithWork: Interactable, IInteractable
 {
     public enum State
     {
@@ -10,6 +10,7 @@ public class ItemSlotInteractableWithWork: MonoBehaviour, IInteractable
         Ready,
         Completed
     }
+
     public int RemainingHitCount;
     public State CurrentState;
     public GameObject Product;
@@ -21,9 +22,6 @@ public class ItemSlotInteractableWithWork: MonoBehaviour, IInteractable
     public GameObject GameObject => gameObject;
 
     private IInteractable resultInteractable;
-    public void Disable()
-    {
-    }
 
     public void Interact(IInteractor interactor)
     {
@@ -65,7 +63,7 @@ public class ItemSlotInteractableWithWork: MonoBehaviour, IInteractable
                 }
                 break;
             case State.Ready:
-                interactor.PickUP(resultInteractable);
+                resultInteractable.Interact(interactor);
                 CurrentState = State.Completed;
                 break;
             case State.Completed:

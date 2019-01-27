@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class ItemSlotInteractable : MonoBehaviour, IInteractable
+public class ItemSlotInteractable : Interactable, IInteractable
 {
     public bool Completed;
 
@@ -10,10 +10,6 @@ public class ItemSlotInteractable : MonoBehaviour, IInteractable
     public string ID => name;
 
     public GameObject GameObject => gameObject;
-
-    public void Disable()
-    {
-    }
 
     public void Interact(IInteractor interactor)
     {
