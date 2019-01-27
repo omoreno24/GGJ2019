@@ -341,7 +341,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 134934321}
-  m_LocalRotation: {x: 0.47545776, y: 0.014797015, z: -0.007998599, w: 0.8795778}
+  m_LocalRotation: {x: 0.47545776, y: 0.014797045, z: -0.0079986155, w: 0.8795778}
   m_LocalPosition: {x: -2.622096, y: 16.42, z: -7.113385}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -762,7 +762,7 @@ ParticleSystem:
       serializedVersion: 2
       minMaxState: 0
       minColor: {r: 1, g: 1, b: 1, a: 1}
-      maxColor: {r: 1, g: 1, b: 1, a: 0.67058825}
+      maxColor: {r: 1, g: 1, b: 1, a: 0.34901962}
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}
@@ -1146,7 +1146,7 @@ ParticleSystem:
     gravityModifier:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0
+      scalar: -1.18
       minScalar: 0
       maxCurve:
         serializedVersion: 2
@@ -1522,13 +1522,13 @@ ParticleSystem:
         m_Curve:
         - serializedVersion: 3
           time: 0
-          value: 0.31781006
-          inSlope: 1.2737471
-          outSlope: 1.2737471
+          value: 0.3157959
+          inSlope: 2.5295439
+          outSlope: 2.5295439
           tangentMode: 0
           weightedMode: 0
           inWeight: 0.33333334
-          outWeight: 0.25777778
+          outWeight: 0.034408603
         - serializedVersion: 3
           time: 1
           value: 0.44615254
@@ -1783,8 +1783,8 @@ ParticleSystem:
     curve:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0.87266463
-      minScalar: 0.7853982
+      scalar: 4.712389
+      minScalar: -2.5504496
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -1833,7 +1833,7 @@ ParticleSystem:
         m_PreInfinity: 2
         m_PostInfinity: 2
         m_RotationOrder: 4
-    separateAxes: 0
+    separateAxes: 1
   ColorModule:
     enabled: 1
     gradient:
@@ -5291,7 +5291,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 170100739}
-  m_LocalRotation: {x: 0.47545776, y: 0.014797015, z: -0.007998599, w: 0.8795778}
+  m_LocalRotation: {x: 0.47545776, y: 0.014797045, z: -0.0079986155, w: 0.8795778}
   m_LocalPosition: {x: 9.233601, y: 24.960209, z: -29.676943}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
