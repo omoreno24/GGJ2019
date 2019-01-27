@@ -267,7 +267,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 134934321}
-  m_LocalRotation: {x: 0.501913, y: -0.0028838827, z: 0.0016735003, w: 0.86491174}
+  m_LocalRotation: {x: 0.501913, y: -0.002883875, z: 0.0016734868, w: 0.86491174}
   m_LocalPosition: {x: 1.4679041, y: 16.42, z: -2.7033854}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -5118,7 +5118,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 170100739}
-  m_LocalRotation: {x: 0.501913, y: -0.0028838827, z: 0.0016735003, w: 0.86491174}
+  m_LocalRotation: {x: 0.501913, y: -0.002883875, z: 0.0016734868, w: 0.86491174}
   m_LocalPosition: {x: 13.62829, y: 27.52303, z: -25.785208}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -7904,9 +7904,10 @@ GameObject:
   - component: {fileID: 1438016283}
   - component: {fileID: 1438016282}
   - component: {fileID: 1438016281}
+  - component: {fileID: 1438016286}
   m_Layer: 9
   m_Name: Mom
-  m_TagString: Untagged
+  m_TagString: interactable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8003,6 +8004,30 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: -180, z: 0}
+--- !u!114 &1438016286
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1438016280}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cfe2f414fa8d84682a8b4cdcef6e175c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Attributes: {fileID: 11400000, guid: 414f4b863652a407b92456a05c9e3094, type: 2}
+  Expectations:
+  - Interactable: {fileID: 1823542756}
+    Icon: {fileID: 0}
+    PatientMultiply: 1
+    Name: Convert Item 1 to Item 2
+  - Interactable: {fileID: 676314673}
+    Icon: {fileID: 0}
+    PatientMultiply: 2
+    Name: Give me Item 2
+  ExtressLevel: 0
+  realExpectationList: []
 --- !u!1001 &1465779275
 PrefabInstance:
   m_ObjectHideFlags: 0
