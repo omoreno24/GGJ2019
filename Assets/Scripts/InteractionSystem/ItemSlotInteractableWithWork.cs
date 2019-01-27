@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 
 public class ItemSlotInteractableWithWork: Interactable, IInteractable
 {
@@ -11,7 +12,7 @@ public class ItemSlotInteractableWithWork: Interactable, IInteractable
         Completed
     }
 
-    public int RemainingHitCount;
+    public float RemainingHitCount;
     public State CurrentState;
     public GameObject Product;
     public GameObject ResultProduct;
@@ -22,6 +23,15 @@ public class ItemSlotInteractableWithWork: Interactable, IInteractable
     public GameObject GameObject => gameObject;
 
     private IInteractable resultInteractable;
+    private float DefaultHealthValue;
+
+    public Image UIfiller;
+
+    void Start()
+    {
+        Debug.Log("Start");
+        DefaultHealthValue = RemainingHitCount;
+    }
 
     public void Interact(IInteractor interactor)
     {
@@ -48,9 +58,15 @@ public class ItemSlotInteractableWithWork: Interactable, IInteractable
                 break;
             case State.Filled:
                 if (RemainingHitCount > 0)
+                {
+                    UIfiller.transform.parent.gameObject.SetActive(true);
                     RemainingHitCount -= 1;
+                    Debug.Log(RemainingHitCount / DefaultHealthValue);
+                    UIfiller.fillAmount = 1-(RemainingHitCount / DefaultHealthValue);
+                }
                 else
                 {
+                    UIfiller.transform.parent.gameObject.SetActive(false);
                     CurrentState = State.Ready;
                     Destroy(Product);
 
