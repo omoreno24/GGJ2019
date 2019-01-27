@@ -158,7 +158,7 @@ Material:
     - _DetailNormalMapScale: 1
     - _DstBlend: 0
     - _GI_Intensity: 0.112
-    - _GlossMapScale: 1
+    - _GlossMapScale: 0.377
     - _Glossiness: 0.446
     - _GlossyReflections: 0
     - _HighColor_Power: 0

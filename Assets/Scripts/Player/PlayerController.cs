@@ -16,6 +16,8 @@ public class PlayerController : MonoBehaviour, IInteractor
 
     private Vector3 Motion;
 
+    Animator _animator;
+    public ParticleSystem Smoke;
 
     private void OnEnable()
     {
@@ -31,11 +33,26 @@ public class PlayerController : MonoBehaviour, IInteractor
     {
         Control.PlayerAction.Movement.performed += (ctx) => MoveEvent(ctx.ReadValue<Vector2>());
         Control.PlayerAction.Interact.performed += (ctx) => InteractEvent();
+
+        _animator = GetComponent<Animator>();
     }
 
     void MoveEvent(Vector2 directions)
     {
         Motion = new Vector3(directions.x, 0, directions.y);
+
+        if (Motion.sqrMagnitude > 0)
+        {
+            _animator.Play("CharacterWalk");
+            if (!Smoke.isPlaying)
+                Smoke.Play();
+        }
+        else
+        {
+            if (Smoke.isPlaying)
+                Smoke.Stop();
+            _animator.Play("CharacterIDLE");
+        }
     }
 
     void InteractEvent()
