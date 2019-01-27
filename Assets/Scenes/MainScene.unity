@@ -10284,9 +10284,10 @@ GameObject:
   - component: {fileID: 1438016283}
   - component: {fileID: 1438016282}
   - component: {fileID: 1438016281}
+  - component: {fileID: 1438016286}
   m_Layer: 9
   m_Name: Mom
-  m_TagString: Untagged
+  m_TagString: interactable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
