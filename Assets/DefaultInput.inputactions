@@ -10,6 +10,12 @@
                     "id": "fcf18e27-7782-49a2-945f-c661b2533495",
                     "expectedControlLayout": "",
                     "bindings": []
+                },
+                {
+                    "name": "Interact",
+                    "id": "0aa21a1d-dcaf-48d4-8ca9-a70dbd364abf",
+                    "expectedControlLayout": "",
+                    "bindings": []
                 }
             ],
             "bindings": [
@@ -131,6 +137,30 @@
                     "chainWithPrevious": false,
                     "isComposite": false,
                     "isPartOfComposite": true,
+                    "modifiers": ""
+                },
+                {
+                    "name": "right",
+                    "path": "<Keyboard>/space",
+                    "interactions": "Press",
+                    "processors": "",
+                    "groups": ";Keyboard + Mouse",
+                    "action": "Interact",
+                    "chainWithPrevious": false,
+                    "isComposite": false,
+                    "isPartOfComposite": false,
+                    "modifiers": ""
+                },
+                {
+                    "name": "right",
+                    "path": "<Mouse>/leftButton",
+                    "interactions": "Press",
+                    "processors": "",
+                    "groups": ";Keyboard + Mouse",
+                    "action": "Interact",
+                    "chainWithPrevious": false,
+                    "isComposite": false,
+                    "isPartOfComposite": false,
                     "modifiers": ""
                 }
             ]

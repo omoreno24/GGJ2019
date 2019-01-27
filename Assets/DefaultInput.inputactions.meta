@@ -4,6 +4,7 @@ ScriptedImporter:
   fileIDToRecycleName:
     11400000: <root>
     11400002: PlayerAction/Movement
+    11400004: PlayerAction/Interact
   externalObjects: {}
   userData: 
   assetBundleName: 

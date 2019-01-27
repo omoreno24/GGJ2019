@@ -1,40 +1,102 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class PlayerController : MonoBehaviour
+public class PlayerController : MonoBehaviour, IInteractor
 {
-    public  PlayerMovement movementController;
+    public Transform PickUpPoint;
 
-    public DefaultInput control;
-    private Vector3 motion;
+    public IInteractable Item;
+
+    public IInteractable SelectedInteractable;
+
+    public IInteractable CurrentItem { get { return Item; } }
+
+    public PlayerMovement MovementController;
+    public DefaultInput Control;
+
+    private Vector3 Motion;
+
 
     private void OnEnable()
     {
-        control.Enable();
+        Control.Enable();
     }
 
     private void OnDisable()
     {
-        control.Disable();
+        Control.Disable();
     }
 
     private void Awake()
     {
-        control.PlayerAction.Movement.performed += (ctx) => MoveEvent(ctx.ReadValue<Vector2>());
+        Control.PlayerAction.Movement.performed += (ctx) => MoveEvent(ctx.ReadValue<Vector2>());
+        Control.PlayerAction.Interact.performed += (ctx) => InteractEvent();
     }
 
     void MoveEvent(Vector2 directions)
     {
-        this.motion = new Vector3(directions.x, 0, directions.y);
-        Debug.Log("It's Working");
+        Motion = new Vector3(directions.x, 0, directions.y);
+    }
+
+    void InteractEvent()
+    {
+        if (SelectedInteractable is null)
+        {
+            DropItem();
+        }
+        else
+        {
+            SelectedInteractable.Interact(this);
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
-        movementController.Move(motion);
+        MovementController.Move(Motion);
     }
 
+    public void PickUP(IInteractable interactable)
+    {
+        if (this.Item == null)
+        {
+            this.Item = interactable;
 
-    
+            interactable.GameObject.transform.position = PickUpPoint.position;
+            interactable.GameObject.transform.rotation = PickUpPoint.rotation;
+
+            interactable.GameObject.transform.SetParent(this.transform);
+        }
+    }
+
+    public void DropItem()
+    {
+        if (Item is null)
+            return;
+
+        Item.GameObject.transform.SetParent(null);
+
+        this.Item = null;
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.tag == "interactable")
+        {
+            SelectedInteractable = other.gameObject.GetComponent<IInteractable>();
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.tag == "interactable")
+        {
+            var interactable = other.gameObject.GetComponent<IInteractable>();
+
+            if (interactable != null && SelectedInteractable != null)
+            {
+                SelectedInteractable = interactable == SelectedInteractable ? null : SelectedInteractable;
+            }
+        }
+    }
 }

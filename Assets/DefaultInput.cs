@@ -21,12 +21,14 @@ public class DefaultInput : InputActionAssetReference
         // PlayerAction
         m_PlayerAction = asset.GetActionMap("PlayerAction");
         m_PlayerAction_Movement = m_PlayerAction.GetAction("Movement");
+        m_PlayerAction_Interact = m_PlayerAction.GetAction("Interact");
         m_Initialized = true;
     }
     private void Uninitialize()
     {
         m_PlayerAction = null;
         m_PlayerAction_Movement = null;
+        m_PlayerAction_Interact = null;
         m_Initialized = false;
     }
     public void SetAsset(InputActionAsset newAsset)
@@ -42,11 +44,13 @@ public class DefaultInput : InputActionAssetReference
     // PlayerAction
     private InputActionMap m_PlayerAction;
     private InputAction m_PlayerAction_Movement;
+    private InputAction m_PlayerAction_Interact;
     public struct PlayerActionActions
     {
         private DefaultInput m_Wrapper;
         public PlayerActionActions(DefaultInput wrapper) { m_Wrapper = wrapper; }
         public InputAction @Movement { get { return m_Wrapper.m_PlayerAction_Movement; } }
+        public InputAction @Interact { get { return m_Wrapper.m_PlayerAction_Interact; } }
         public InputActionMap Get() { return m_Wrapper.m_PlayerAction; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
